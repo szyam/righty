@@ -1,0 +1,256 @@
+.main-header {
+	// if using nav on scroll;
+	@media (min-width: $medium) {
+		padding-top: 7.5em;
+	}
+}
+
+.righty-nav {
+    background-color: #fff;
+    border-bottom: 2px solid $primary;
+    li {
+        list-style: none;
+        a {
+            display: block;
+            padding: 0.75rem $gutter;
+            border-top: 1px solid $light;
+        }
+    }
+    // mobile left unstyled. Use your favorite solution.
+    @media (min-width: $medium) {
+        //margin-bottom: 5em; // if position realative
+        position: fixed; //position relative if not using scroll nav
+        top: 0;
+        width: 100%;
+        transition: top $trans-speed ease-in-out;
+        z-index: 100;
+        &.nav-up { // only for scroll nav
+            top: -50px;
+        }
+    } // mq
+
+    // mobile menu
+    #toggle {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 1.25em;
+        cursor: pointer;
+        display: inline-block;
+        z-index: 100;
+        i {
+            padding: 0.75rem 1rem;
+            display: block;
+        }
+    }
+    .menu {
+        display: none;
+        &.mobile {
+            display: block;
+        }
+    }
+    // end mobile menu
+    
+    @media (min-width: ( $medium )) {  
+        .menu, .site-title {
+            margin: 0;
+            list-style-type:none;
+            display: block;
+            //cf
+            li {
+                float: left;
+                position: relative;
+                a {
+                    display:block;
+                    font-size:1rem;
+                    color:$dark;
+                    border:none;
+                    padding:0.75rem 1rem;
+                    text-shadow: -1px 1px 0 $light;
+                    transition: all 100ms ease-in-out;
+                    &:hover a, &:focus a {
+                        color:$primary;
+                    }
+                    i {
+                        font-size: 1.25rem;
+                    }
+                }
+                &:hover > a {
+                    color:$body-color;
+                    background-color: darken($accent, 5%); // for main li retaining bg
+                }
+            }
+        } // end menu & site-title
+        .menu {
+            float: right;
+        }
+        .site-title {
+            float:left;
+            .home-link strong {
+                position: relative;
+                z-index: 10;
+            }
+            a:hover {
+                color:$primary;
+            }
+        } // end site-title
+        .menu {
+            li {
+                &:after { //keeps sub-menu from disappearing during the 2px gutter
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    bottom: -2px;
+                }
+            	&.menu-item-has-children {
+	                > a {
+	                    &:after {
+	                        content: "▸";
+	                        position: relative;
+	                        margin-left:0.25em;
+	                        display:inline-block;
+	                        -moz-transform: scale(1) rotate(0deg);
+	                     -webkit-transform: scale(1) rotate(0deg);
+	                          -o-transform: scale(1) rotate(0deg);
+	                         -ms-transform: scale(1) rotate(0deg);
+	                             transform: scale(1) rotate(0deg);
+	                    }
+	                }//a
+	                &:hover > a:after {
+	                   -moz-transform: scale(1) rotate(90deg);
+	                -webkit-transform: scale(1) rotate(90deg);
+	                     -o-transform: scale(1) rotate(90deg);
+	                    -ms-transform: scale(1) rotate(90deg);
+	                        transform: scale(1) rotate(90deg);
+	              	}
+            	}//has-children
+                a {
+                    text-align:center;
+                    font-weight: 400;
+                }
+                &.active a {
+                    color:$primary;
+                }
+                & > a:hover {
+                    color:#fff;
+                    text-shadow: none;
+                    background-color: darken($primary, 10%);
+                }
+                .sub-menu {
+                    position: absolute;
+                    margin: 0;
+                    left:0;
+                    top: calc(100% + 2px);
+                    border-left: 1px solid darken($light,5%);
+                    border-right: 1px solid darken($light,5%);
+                    min-width: 100px;
+                    opacity: 0;
+               -moz-transform: scale(0);
+            -webkit-transform: scale(0);
+                 -o-transform: scale(0);
+                -ms-transform: scale(0);
+                    transform: scale(0);
+                    //transition: opacity $trans-speed ease-in-out;
+                    &:before,&:after {
+                        content:'';
+                        width:$gutter*2;
+                        height:100%;
+                        top: 0;
+                        position: absolute;
+                    }
+                    &:before {
+                        right:100%;
+                    }
+                    &:after {
+                        left:100%;
+                    }
+                    li { // sub-menu li
+                        display:block;
+                        float:none;
+                        border-top: 1px solid $light;
+                        &:first-child {
+                            border: none;
+                        }
+                        &:last-child {
+                            border-bottom: 1px solid $accent;
+                        }
+                        a {
+                            text-align:left;
+                            font-weight: 400;
+                            color: $dark;
+                            white-space: nowrap;
+                            min-width: 175px;
+                            background-color: #fff;
+                            //transition: all $trans-speed ease-in-out;
+                            &:hover {
+                                color:$body-color;
+                                background-color: $light;
+                            }
+                        }// end sub-menu li a
+                    }// end sub-menu li
+                }// end sub-menu
+
+            // back in main li
+            &:hover > .sub-menu,
+            // & a:focus > .sub-menu,
+            &.menu-item-has-children a:focus + .sub-menu,
+            .sub-menu.active
+                {
+                opacity: 1;
+                -moz-transform: scale(1);
+             -webkit-transform: scale(1);
+                  -o-transform: scale(1);
+                 -ms-transform: scale(1);
+                     transform: scale(1);
+                    .sub-menu { // sub sub-menu
+                        top:0;
+                        left:100%;
+                        margin-left:1px;
+                        li {
+                            a {
+                                border-top:0;
+                            }
+                        }
+                    }
+                }
+            }// end main li
+            > li:last-child { // if the last li has a sub-menu, this will keep it from displaying off screen on the right
+            	.sub-menu {
+            		@media (max-width: $xxlarge) {
+            			left: auto;
+            			right: 0;
+            		}
+            	}
+            }
+        }//menu
+    }//mq
+
+    strong {
+        font-size: 1rem;
+        font-weight: 800;
+        margin:0;
+        line-height: 1;
+    }
+}// righty-nav
+
+
+// <nav class="righty-nav nav-down" role="navigation">
+//     <div class="row">
+//         <ul class="site-title">
+//             <li><a href="#" class="home-link"><strong>Righty</strong></a></li>
+//         </ul>
+//         <ul class="menu">
+//             <li><a href="#">Righty</a></li>
+//             </li>
+//             <li class="menu-item-has-children"><a href="#!">Modules</a>
+//                 <ul class="sub-menu">
+//                     <li><a href="#">Home</a></li>
+//                     <li><a href="#">About</a></li>
+//                     <li><a href="#">Portfolio</a></li>
+//                     <li><a href="#">Contact</a></li>
+//                 </ul>
+//             </li>
+//         </ul>
+//     </div>
+// </nav>

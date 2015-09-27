@@ -1,0 +1,134 @@
+// * H E L P E R S  *
+
+// * layout *
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.left {
+    @media (min-width: $medium) {
+        float: left;
+        margin-right: $gutter;
+    }
+}
+
+.right {
+    @media (min-width: $medium) {
+        float: right;
+        margin-left: $gutter;
+    }
+}
+
+.mobile-fifty {
+    @media (max-width: ($medium - $one)) {
+        width: 50%;
+        float: left;
+    }
+    & + *:not(.mobile-fifty), 
+    & + *:not(.mobile-fifty) 
+    {
+        clear: both;
+    }
+}
+
+.clearfix {
+    *zoom: 1;
+    &:before, 
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// * text *
+.antialiased {
+     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.text-tint {
+	text-shadow: -1px 1px 0 transparentize($light, $trans);
+}
+
+.text-shade {
+	text-shadow: -1px 1px 0 transparentize($dark, $trans);
+}
+
+// * ornamental *
+.panel {
+    background-color: $light;
+    padding: $gutter*2;
+    &.small {
+        padding: $gutter;
+    }
+    &.dark {
+        background-color: darken($dark, 10%) !important;
+    }
+}
+
+.padded {
+    padding: $gutter;
+}
+
+.padded-x {
+    padding: 0 $gutter;
+}
+
+.padded-y {
+    padding: $gutter 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+// * accessibility -
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+// * for breakpoints *
+.show-for-small {
+    @media (min-width: $medium) {
+        display: none !important;
+    }
+}
+
+.show-for-medium {
+    display: none;
+    @media (min-width: $medium) and (max-width: $large) {
+        display: inherit;
+    }
+}

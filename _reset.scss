@@ -1,0 +1,79 @@
+// * R E S E T *
+
+// @mixin border-box {
+//     -webkit-box-sizing: border-box;
+//     -moz-box-sizing: border-box;
+//     box-sizing: border-box; 
+// }
+
+// * html5 boilerplate reset
+
+html {
+    color: $body-color;
+    font-size: 1em;
+    line-height: 1.4;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $body-font;
+}
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+::-moz-selection {
+    background: $accent;
+    text-shadow: none;
+}
+
+::selection {
+    background: $accent;
+    text-shadow: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    clear: both;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+img, embed, object {
+    width: auto;
+    max-width: 100%;
+    height: auto !important; 
+}

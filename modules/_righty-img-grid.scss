@@ -1,0 +1,80 @@
+//_image-grid.scss
+
+ul[class*="img-grid-"] {
+	@include clearfix();
+	list-style-type: none;
+	li {
+		position: relative;
+		float: left;
+		margin: 0;
+		transition: all $trans-speed ease-in-out;
+		a {
+			display: block;
+		}
+		h5 {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			background-color: transparentize($accent, $trans);
+			margin: 0;
+			padding: 1em;
+			color: $dark;
+			font-weight: 600;
+			transition: all $trans-speed ease-in-out;
+		}
+		img {
+			margin: 0 auto;
+			display: block;
+		}
+		&:hover,&:focus {
+			h5 {
+				background-color: $primary;
+				color: #fff;
+			}
+			img {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+@media (min-width: $medium) {
+
+    @for $i from 2 through $img-grid-count {      
+        .img-grid-#{$i} li {
+            width: 50%;   
+        }           
+    }   
+
+} //mq
+
+@media (min-width: $large) {
+
+    @for $i from 2 through $img-grid-count {      
+        .img-grid-#{$i} li {
+            width: 100% / $i;   
+        }           
+    }   
+
+} //mq
+
+// <ul class="img-grid-3">
+//     <li>
+//         <a href="#!">
+//             <h5>This is title 1</h5>
+//             <img src="https://placeimg.com/400/400/any/grayscale">
+//         </a>
+//     </li>
+//     <li>
+//         <a href="#!">
+//             <h5>This is title 2</h5>
+//             <img src="https://placeimg.com/400/400/people/grayscale">
+//         </a>
+//     </li>
+//     <li>
+//         <a href="#!">
+//             <h5>This is title 3</h5>
+//             <img src="https://placeimg.com/400/400/arch/grayscale">
+//         </a>
+//     </li>
+// </ul>

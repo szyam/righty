@@ -1,0 +1,109 @@
+[class*="righty-tabs-"] {
+	margin:$gutter 0;
+	input[type=radio] {
+		display:none;
+	}
+	input[type="checkbox"]+label, input[type="radio"]+label {
+		margin-left: 0;
+	}
+	label {
+		font-family: $header-font;
+		font-size: 1.25rem;
+		cursor:pointer;
+		color:$primary;
+		width:100%;
+		display: block;
+		min-height:3em;
+		background:$accent;
+		padding: 0 $gutter;
+		text-align:center;
+		line-height:3em;
+		border-radius:0;
+		border-bottom:2px solid $primary;
+		transition:background 0.2s ease-in-out, height 0.2s linear;
+		&:last-of-type {
+			border-bottom:none;
+		}
+		&:hover {
+			background:darken($primary, 10%);
+			color: #fff;
+      	//@include transform (translate(0,-0.2em));
+		}
+		@media (min-width: $medium) {
+			width: auto; 
+			border-bottom: none;
+			float: left;
+	    }
+	}
+}
+
+@media (min-width: $medium) {
+	@for $i from 2 through 5 { // 2 through 5 tabs is pretty acceptable. Though you can customize.
+		.#{righty-tabs}-#{$i} label {
+			width: 100% / $i;
+		}
+	}
+}
+
+#tab1, #tab2, #tab3, #tab4, #tab5 {
+	&:checked{
+		+ label {
+			background:$primary;
+			color:$light;
+		}
+	}
+}
+
+.tab-body {
+	position:absolute;
+	top:-9999px;
+	opacity:1;// not working?
+	padding:2em;
+	@media (min-width: $medium) {
+		overflow:hidden;
+	}
+}
+
+.tab-body-wrapper {
+	background:$light;
+	border-top:2px solid $primary;
+	clear: both;
+}
+
+#tab1:checked ~ .tab-body-wrapper #tab-body-1, 
+#tab2:checked ~ .tab-body-wrapper #tab-body-2,
+#tab3:checked ~ .tab-body-wrapper #tab-body-3, 
+#tab4:checked ~ .tab-body-wrapper #tab-body-4 {
+	position:relative;
+	top:0px;
+	opacity: 1;
+}
+
+
+// * Uncomment this and paste in your html
+
+// <div class="righty-tabs-2">
+//     <input type="radio" name="tab" id="tab1" class="tab-head" checked="checked"/>
+//     <label for="tab1">Tab 1</label>
+//     <input type="radio" name="tab" id="tab2" class="tab-head" />
+//     <label for="tab2">Tab 2</label>
+
+//     <div class="tab-body-wrapper">
+//         <div id="tab-body-1" class="tab-body">
+//             <h4>Tab Content 1</h4>
+//             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+//             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+//             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+//             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+//             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+//             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+//         </div>
+
+//         <div id="tab-body-2" class="tab-body">
+//             <img src="http://placehold.it/200x200" class="right">
+//             <h4>Tab Content 2</h4>
+//             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+//             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+//         </div>
+//     </div>
+// </div>
