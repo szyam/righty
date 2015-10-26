@@ -65,6 +65,7 @@ $trans-speed: 200ms;
     }
 }
 
+// * define a row with any size width *
 @mixin row($max-width: $container-width, $padded: 0) {
   @include clearfix;
   width: auto;
@@ -79,40 +80,4 @@ $trans-speed: 200ms;
     left:  $padded;
     right: $padded;
   };
-}
-
-@mixin column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter) {
-  $side: jeet-get-layout-direction();
-  $opposite-side: jeet-opposite-direction($side);
-  $column-widths: jeet-get-column($ratios, $gutter);
-  $margin-last: 0;
-  $margin-l: $margin-last;
-  $margin-r: nth($column-widths, 2);
-
-  @if $offset != 0 {
-    @if $offset < 0 {
-      $offset: $offset * -1;
-      $offset: nth(jeet-get-column($offset, nth($column-widths, 2)), 1);
-      $margin-last: $offset + nth($column-widths, 2) * 2;
-      $margin-r: $margin-last;
-    } @else {
-      $offset: nth(jeet-get-column($offset, nth($column-widths, 2)), 1);
-      $margin-l: $offset + nth($column-widths, 2);
-    }
-  }
-}
-
-// * View the grid and its layers for easy debugging.
-// * @param {string} [$color=black] - The background tint applied.
-// * @param {boolean} [$important=false] - Whether to apply the style as !important.
-@mixin edit($color: black, $important: false) {
-  @if $important {
-    * {
-      background: rgba($color, .05) !important;
-    }
-  } @else {
-    * {
-      background: rgba($color, .05);
-    }
-  }
 }

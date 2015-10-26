@@ -2,10 +2,10 @@
 //inspired from http://webdesign.tutsplus.com/tutorials/a-simple-responsive-grid-made-even-better-with-sass--cms-21540
 
 .row {
-	width: 100%;
     margin: 0 auto;
-    @extend %clearfix;
+    width: 100%;
     max-width: $container-width;
+    @extend %clearfix;
     &.wide {
         max-width: $container-width * 1.25; // change to suit
     }
@@ -15,7 +15,7 @@
 }
 
 [class*='columns-'], [class*='col-'] {
-    // float: left; // add float back to mobile-first col if experiencing collapsing issues. But, man... it feels nice to just ad float:left when it's necessary
+    // float: left; // add float back to mobile-first col if experiencing collapsing issues. But, man... it feels nice to just add 'float:left' when it's necessary
     width: 100%;
     min-height: $one;
     padding: $gutter;
