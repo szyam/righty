@@ -57,13 +57,9 @@ jQuery(document).ready(function($){
 	// * End scroll nav
 
 	// * Menu Toggle
-	// * var menuSize = $('.menu li').size();
 
 	$('#toggle').on('click', function(){
-		$('.menu')
-		.toggleClass('mobile')
-		.find('a')
-		.css( styles );
+		$(this).toggleClass('open').siblings('.menu').toggleClass('mobile');
 	});
 
 	// * End Menu Toggle

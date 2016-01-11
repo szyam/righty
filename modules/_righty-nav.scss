@@ -12,13 +12,14 @@
         list-style: none;
         a {
             display: block;
+            color: $primary;
             padding: 0.75rem $gutter;
             border-top: 1px solid $light;
         }
     }
     // mobile left unstyled. Use your favorite solution.
     @media (min-width: $medium) {
-        //margin-bottom: 5em; // if position realative
+        //margin-bottom: 5em; // if position relative
         position: fixed; //position relative if not using scroll nav
         top: 0;
         width: 100%;
@@ -29,29 +30,42 @@
         }
     } // mq
 
-    // mobile menu
-    #toggle {
+    // mobile
+    .toggle {
         position: absolute;
         right: 0;
         top: 0;
-        font-size: 1.25em;
+        display: block;
+        padding: 0.75rem 1rem;
+        font-size: 1em;
         cursor: pointer;
-        display: inline-block;
+        color: $primary;
         z-index: 100;
-        i {
-            padding: 0.75rem 1rem;
-            display: block;
+        &::before {
+            content: '\e611';
+            font-family: 'icomoon';
+        }
+        &.open::before {
+            content: '\e903';
+            color: lighten($primary, 10%);
         }
     }
     .menu {
-        display: none;
+        transition: max-height $trans-speed ease-in-out;
+        a {
+            color: $dark;
+        }
         &.mobile {
-            display: block;
+            max-height: 800px;
+        }
+        @media (max-width: ($medium - $one)) {
+            max-height: 0;
+            overflow: hidden;
         }
     }
     // end mobile menu
     
-    @media (min-width: ( $medium )) {  
+    @media (min-width:$medium) {  
         .menu, .site-title {
             margin: 0;
             list-style-type:none;
@@ -240,9 +254,9 @@
 //         <ul class="site-title">
 //             <li><a href="#" class="home-link"><strong>Righty</strong></a></li>
 //         </ul>
+//         <span id="toggle" class="toggle show-for-small"></span>
 //         <ul class="menu">
 //             <li><a href="#">Righty</a></li>
-//             </li>
 //             <li class="menu-item-has-children"><a href="#!">Modules</a>
 //                 <ul class="sub-menu">
 //                     <li><a href="#">Home</a></li>
