@@ -2,7 +2,7 @@
 righty.css - light grid and toolbox
 
 A very, very light-weight grid and toolbox.
-3kb without modules/ 11kb with modules(before gzipping).
+3kb without modules/ 19kb with modules(before gzipping).
 
 http://markszymanski.com/righty/
 
