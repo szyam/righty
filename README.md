@@ -11,7 +11,7 @@ http://markszymanski.com/righty/
 Download the folder from here or github
 insert it in your scss folder
 @import "righty";
-Your done! If, you want to incorporate some of the bundled modules, you'll need to comment them in or out, in the _righty/_modules file.
+Your done! If you want to incorporate some of the bundled modules, you'll need to comment them in or out, in the _righty/_modules file.
 
 ## Why Righty?
 
