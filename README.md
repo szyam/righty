@@ -8,10 +8,10 @@ http://markszymanski.com/righty/
 
 ### Add Righty to your project:
 
-Download (or clone - bower coming soon) the folder from github
-insert it in your scss folder, @import "righty";
-Your done! 
-If you want to incorporate some of the bundled modules, you'll need to comment them in or out, in the _righty/_modules file.
+- Download (or clone - bower coming soon) the folder from github
+- insert it in your scss folder, @import "righty";
+- Your done! 
+- If you want to incorporate some of the bundled modules, you'll need to comment them in or out, in the _righty/_modules file.
 
 ## Why Righty?
 
