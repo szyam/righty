@@ -1,4 +1,5 @@
-// * B A S S   G R I D  *
+// * B A S E   G R I D  *
+//
 //inspired from http://webdesign.tutsplus.com/tutorials/a-simple-responsive-grid-made-even-better-with-sass--cms-21540
 
 .row {
@@ -11,6 +12,13 @@
     }
     &.narrow {
         max-width: $container-width * .75; // change to suit
+    }
+    .row {
+        @media (min-width: $medium) {
+            [class*='col-']:first-child {
+                margin-left: -$gutter;
+            }
+        }
     }
 }
 
@@ -32,3 +40,48 @@
         }           
     }   
 } // * mq
+
+// * M I X I N S *
+// * Apply a clearfix to an element.
+
+@mixin clearfix() {
+  *zoom: 1;
+
+  &:before, &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+%clearfix {
+    *zoom: 1;
+    &:before, 
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// * define a row with any size width *
+@mixin row($max-width: $container-width, $padded: 0) {
+  @include clearfix;
+  width: auto;
+  max-width: $max-width;
+  float: none;
+  display: block;
+  margin: {
+    right: auto;
+    left:  auto;
+  };
+  padding: {
+    left:  $padded;
+    right: $padded;
+  };
+}

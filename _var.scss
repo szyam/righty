@@ -1,3 +1,4 @@
+// * V A R S *
 // * B R E A K P O I N T S *
 
 $one: 0.025em;
@@ -8,11 +9,16 @@ $large: 48em; //768px
 $xlarge: 62em;
 $xxlarge: 78em;
 
+$max-medium: ($medium - $one);
+$max-large: ($large - $one);
+$max-xlarge: ($xlarge - $one);
+
 $grid-columns: 12;
 $container-width: 62.5em !default; //1000px
 $gutter: 0.975em !default;
 
 $img-grid-count: 6;
+$card-count: 6;
 
 // * C O L O R S *
 
@@ -26,58 +32,16 @@ $dark: darkslategray;
 $muted:lightseagreen;
 
 // * T R A N S P A R E N C Y *
+
 $trans: 0.1;
 
 // * F O N T S *
+
 $header-font: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $body-font: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $body-color:#222;
 
 // * M I S C *
+
 $trans-speed: 200ms;
-
-
-// * M I X I N S *
-// * Apply a clearfix to an element.
-
-@mixin clearfix() {
-  *zoom: 1;
-
-  &:before, &:after {
-    content: '';
-    display: table;
-  }
-
-  &:after {
-    clear: both;
-  }
-}
-
-%clearfix {
-    *zoom: 1;
-    &:before, 
-    &:after {
-        content: " ";
-        display: table;
-    }
-    &:after {
-        clear: both;
-    }
-}
-
-// * define a row with any size width *
-@mixin row($max-width: $container-width, $padded: 0) {
-  @include clearfix;
-  width: auto;
-  max-width: $max-width;
-  float: none;
-  display: block;
-  margin: {
-    right: auto;
-    left:  auto;
-  };
-  padding: {
-    left:  $padded;
-    right: $padded;
-  };
-}
+$anime: all $trans-speed ease-in-out;

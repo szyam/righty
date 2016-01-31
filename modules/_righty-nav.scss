@@ -1,3 +1,5 @@
+// * R I G H T Y  N A V *
+
 .main-header {
 	// if using nav on scroll;
 	@media (min-width: $medium) {
@@ -58,7 +60,7 @@
         &.mobile {
             max-height: 800px;
         }
-        @media (max-width: ($medium - $one)) {
+        @media (max-width: $max-medium) {
             max-height: 0;
             overflow: hidden;
         }
@@ -120,10 +122,15 @@
             	&.menu-item-has-children {
 	                > a {
 	                    &:after {
-	                        content: "▸";
+	                        //content: "▸"; // if not using included icons
+                            content: '\e602';
+                            // remove following font attributes if not using icons
+                            font-family: 'icomoon';
+                            font-size: 0.5em;
 	                        position: relative;
-	                        margin-left:0.25em;
+	                        margin-left:0.275em;
 	                        display:inline-block;
+                            transition: transform 100ms ease-in-out;
 	                        -moz-transform: scale(1) rotate(0deg);
 	                     -webkit-transform: scale(1) rotate(0deg);
 	                          -o-transform: scale(1) rotate(0deg);
@@ -231,7 +238,7 @@
             }// end main li
             > li:last-child { // if the last li has a sub-menu, this will keep it from displaying off screen on the right
             	.sub-menu {
-            		@media (max-width: $xxlarge) {
+            		@media (max-width: $xlarge) {
             			left: auto;
             			right: 0;
             		}

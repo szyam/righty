@@ -28,14 +28,19 @@
 }
 
 .mobile-fifty {
-    @media (max-width: ($medium - $one)) {
+    @media (max-width: $max-medium) {
         width: 50%;
         float: left;
     }
-    & + *:not(.mobile-fifty), 
-    & + *:not(.mobile-fifty) 
+    & + *:not(.mobile-fifty)
     {
         clear: both;
+    }
+}
+
+[class*='columns-'].end, [class*='col-'].end {
+    @media (min-width: $medium) {
+        float: right;
     }
 }
 

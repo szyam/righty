@@ -1,13 +1,18 @@
-//_image-grid.scss
+// R I G H T Y  I M A G E  G R I D *
+//
+// img-grid-count located in _vars.scss
 
 ul[class*="img-grid-"] {
 	@include clearfix();
 	list-style-type: none;
 	li {
 		position: relative;
-		float: left;
 		margin: 0;
 		transition: all $trans-speed ease-in-out;
+		text-align: center;
+		@media (min-width: $medium) {
+			float: left;
+		}
 		a {
 			display: block;
 		}
@@ -20,6 +25,7 @@ ul[class*="img-grid-"] {
 			padding: 1em;
 			color: $dark;
 			font-weight: 600;
+			text-align: left;
 			transition: all $trans-speed ease-in-out;
 		}
 		img {
@@ -39,24 +45,22 @@ ul[class*="img-grid-"] {
 }
 
 @media (min-width: $medium) {
-
     @for $i from 2 through $img-grid-count {      
         .img-grid-#{$i} li {
             width: 50%;   
         }           
     }   
-
 } //mq
 
 @media (min-width: $large) {
-
     @for $i from 2 through $img-grid-count {      
         .img-grid-#{$i} li {
             width: 100% / $i;   
         }           
     }   
-
 } //mq
+
+
 
 // <ul class="img-grid-3">
 //     <li>

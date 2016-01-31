@@ -1,0 +1,95 @@
+// * R I G H T Y   S H A R E *
+
+$share-btn-color: transparentize($accent, 0.1);
+
+.righty-share {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    transition: all 200ms ease-in-out;
+    @media (min-width: $medium) {
+        display: block;
+        position: fixed;
+        width: 40px;
+        right: 0;
+        bottom: inherit;
+        top: 50%;
+        // margin-top: -100px;
+-webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        text-align: center;
+        z-index: 1000;
+    }
+}
+
+.share-btn {
+    display: inline-block;
+    color: #fff;
+    background-color: $share-btn-color;
+    border: none;
+    margin: 2px auto;
+    width: 40px;
+    height: 40px;
+    outline: none;
+    text-align: center;
+    transition: $anime;
+    @media (min-width: $medium) {
+        display: block;
+    }
+
+    i {
+        font-size: 1.2rem;
+        line-height: 40px;
+    }
+    
+    &:hover, &:active {
+        //color: #ffffff;
+        outline: none;
+    }
+
+    &.twitter     { 
+        &:hover,&:focus {
+            background-color: #55acee; 
+        }
+    }
+    &.google-plus { 
+        &:hover,&:focus {
+            background-color: #dd4b39; 
+        }
+    }
+    &.facebook    { 
+        &:hover,&:focus {
+            background-color: #3B5998; 
+        }
+    }
+    &.email       { 
+        &:hover,&:focus {
+            background-color: $dark; 
+        }
+    }
+}
+
+
+
+// <section class="righty-share">
+//     <!-- Twitter -->
+//     <a rel="nofollow" href="http://twitter.com/share?url=http://www.your-url.com/&amp;text=Some Words:&amp;via=twitter-handle" target="_blank" class="share-btn twitter">
+//         <i class="icon-twitter"></i>
+//     </a>
+
+//     <!-- Google Plus -->
+//     <a rel="nofollow" href="https://plus.google.com/share?url=http://www.your-url.com/" target="_blank" class="share-btn google-plus">
+//         <i class="icon-google-plus"></i>
+//     </a>
+
+//     <!-- Facebook -->
+//     <a rel="nofollow" href="http://www.facebook.com/sharer/sharer.php?u=http://www.your-url.com/" target="_blank" class="share-btn facebook">
+//         <i class="icon-facebook"></i>
+//     </a>
+
+//     <!-- Email -->
+//     <a rel="nofollow" href="mailto:?subject=Righty CSS&amp;body= (From http://www.your-url.com/)" class="share-btn email">
+//         <i class="icon-mail"></i>
+//     </a>
+// </section>

@@ -64,6 +64,22 @@ jQuery(document).ready(function($){
 
 	// * End Menu Toggle
 
+	// * Modals
+	$('a[data-modal]').each( function(){
+		var modal = $(this).data('modal');
+		$(this).on('click', function(e){
+			e.preventDefault();
+			$('body').toggleClass('modal-on');
+			$(modal).toggleClass('show-time').append('<span class="close icon-cross"></span>');
+			$('.close').on('click', function(){
+				$('body').removeClass('modal-on');
+				$(this).parent().removeClass('show-time');
+			})
+		})
+
+	});
+	// End Modals
+
 	// * Breakpoint Finder
 	function viewportWidth() {
 	    var width = $(window).width();
