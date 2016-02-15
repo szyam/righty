@@ -88,7 +88,7 @@ jQuery(document).ready(function($){
 	}
 
 	$( "body" )
-		.prepend( '<span id="browser-width" style="\
+		.append( '<span id="browser-width" style="\
 				background-color:gainsboro;\
 				padding:0.5em;\
 				min-width:125px;\
