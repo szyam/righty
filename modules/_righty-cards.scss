@@ -84,8 +84,11 @@
 	transition: 0.5s;
 	.card-content {
   		max-height: 100%;
-  		padding: 1px 0;// preventing scroll unless needed
-  		overflow: auto;
+  		overflow: hidden;
+  		&.has-scroll {
+  			overflow: auto;
+  			padding-right: $gutter;
+  		}
 	}
 }
 

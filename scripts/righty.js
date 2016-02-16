@@ -70,7 +70,7 @@ jQuery(document).ready(function($){
 		$(this).on('click', function(e){
 			e.preventDefault();
 			$('body').toggleClass('modal-on');
-			$(modal).toggleClass('show-time').append('<span class="close icon-cross"></span>');
+			$(modal).toggleClass('show-time')//.append('<span class="close icon-cross"></span>');
 			$('.close').on('click', function(){
 				$('body').removeClass('modal-on');
 				$(this).parent().removeClass('show-time');
