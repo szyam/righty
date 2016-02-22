@@ -22,7 +22,7 @@
     }
 }
 
-[class*='columns-'], [class*='col-'] {
+[class*='col-'] {
     // float: left; // add float back to mobile-first col if experiencing collapsing issues. But, man... it feels nice to just add 'float:left' when it's necessary
     width: 100%;
     min-height: $one;
@@ -34,19 +34,94 @@
 
 @media (min-width: $medium) {
     @for $i from 1 through $grid-columns {      
-        .columns-#{$i}, .col-#{$i}, { 
+        .col-#{$i}, { 
             float: left;        
             width: 100% / $grid-columns * $i;   
         }           
     }   
 } // * mq
 
+
+[class*='large-'] { // modifier for col-x
+    //width: 100%;
+}
+
+@media (min-width: $large) {
+    @for $i from 1 through $grid-columns {      
+        .large-#{$i}, {       
+            width: 100% / $grid-columns * $i;   
+        }           
+    }   
+} // * mq
+
+
+
+// G R I D  H E L P E R S
+
+.mobile-quarter {
+    @media (max-width: $max-medium) {
+        width: 25%;
+        float: left;
+    }
+    // & + *:not(.mobile-quarter)
+    // {
+    //     clear: both;
+    // }
+}
+
+.mobile-third {
+    @media (max-width: $max-medium) {
+        width: 33.3333%;
+        float: left;
+    }
+    // & + *:not(.mobile-third)
+    // {
+    //     clear: both;
+    // }
+}
+
+.mobile-fifty {
+    @media (max-width: $max-medium) {
+        width: 50%;
+        float: left;
+    }
+    // & + *:not(.mobile-fifty)
+    // {
+    //     clear: both;
+    // }
+}
+
+[class*='col-'].is-end {
+    @media (min-width: $medium) {
+        float: right;
+    }
+}
+
+[class*='col-'].is-single {
+    @media (min-width: $medium) {
+        margin: 0 auto;
+        float: none;
+        clear: both;
+    }
+}
+
+.clearfix {
+    *zoom: 1;
+    &:before, 
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
 // * M I X I N S *
 // * Apply a clearfix to an element.
 
 @mixin clearfix() {
-  *zoom: 1;
-
   &:before, &:after {
     content: '';
     display: table;
@@ -58,7 +133,6 @@
 }
 
 %clearfix {
-    *zoom: 1;
     &:before, 
     &:after {
         content: " ";
@@ -84,4 +158,18 @@
     left:  $padded;
     right: $padded;
   };
+}
+
+@mixin col($medium-width: $col-width, $large-width: null) {
+    width: 100%;
+    min-height: $one;
+    padding: $gutter;
+    @media (min-width: $medium) {
+        float: left;
+        width: $medium-width;
+    }
+    @media (min-width: $large) {
+        float: left;
+        width: $large-width;
+    }
 }

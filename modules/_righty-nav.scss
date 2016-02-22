@@ -3,7 +3,7 @@
 .main-header {
 	// if using nav on scroll;
 	@media (min-width: $medium) {
-		padding-top: 7.5em;
+		// padding-top: 7.5em;
 	}
 }
 
@@ -21,14 +21,17 @@
     }
     // mobile left unstyled. Use your favorite solution.
     @media (min-width: $medium) {
-        //margin-bottom: 5em; // if position relative
-        position: fixed; //position relative if not using scroll nav
-        top: 0;
+        position: relative;
         width: 100%;
         transition: top $trans-speed ease-in-out;
         z-index: 100;
         &.nav-up { // only for scroll nav
+            position: fixed;
             top: -50px;
+        }
+        &.nav-down {
+            position: fixed;
+            top: 0;
         }
     } // mq
 
@@ -43,11 +46,11 @@
         cursor: pointer;
         color: $primary;
         z-index: 100;
-        &::before {
+        &:before {
             content: '\e611';
             font-family: 'icomoon';
         }
-        &.open::before {
+        &.open:before {
             content: '\e903';
             color: lighten($primary, 10%);
         }
@@ -72,10 +75,11 @@
             margin: 0;
             list-style-type:none;
             display: block;
-            //cf
+            max-height: 46px; // keeps the nav flush in case site-title or menu links have greater line-height
             li {
                 float: left;
                 position: relative;
+                line-height: inherit;
                 a {
                     display:block;
                     font-size:1rem;
@@ -130,6 +134,7 @@
 	                        position: relative;
 	                        margin-left:0.275em;
 	                        display:inline-block;
+                            pointer-events:none;
                             transition: transform 100ms ease-in-out;
 	                        -moz-transform: scale(1) rotate(0deg);
 	                     -webkit-transform: scale(1) rotate(0deg);

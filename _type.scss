@@ -1,0 +1,122 @@
+// * T Y P O G R A P H Y *
+// slightly opionated
+
+
+p {
+    font-family: inherit;
+    // font-weight: normal;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    text-rendering: optimizeLegibility;
+    @media (min-width: $medium) {
+        font-size: 1.2rem;
+        line-height: 1.7
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $header-font, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: $header-color;
+    text-rendering: optimizeLegibility;
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4; 
+}
+    h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+    font-size: 60%;
+    // color: lighten($header-color, 10%);
+    line-height: 0;
+}
+
+h1 {
+    font-size: 2.125rem;
+}
+
+h2 {
+    font-size: 1.6875rem;
+}
+
+h3 {
+    font-size: 1.375rem; }
+
+h4 {
+    font-size: 1.125rem; }
+
+h5 {
+    font-size: 1.125rem; }
+
+h6 {
+    font-size: 1rem;
+}
+
+@media only screen and (min-width: 40.063em) {
+
+	h1, h2, h3, h4, h5, h6 {
+	    line-height: 1.4; 
+	}
+
+	h1 {
+	    font-size: 2.375rem; 
+	}
+
+	h2 {
+	    font-size: 2rem; 
+	}
+
+	h3 {
+	    font-size: 1.6875rem; 
+	}
+
+	h4 {
+	    font-size: 1.375rem; 
+	}
+
+	h5 {
+	    font-size: 1.125rem; 
+	}
+
+	h6 {
+	    font-size: 1rem; 
+	}
+}
+
+ul {
+    li {
+        line-height: 1.6;
+        ul {
+            margin-left: $gutter;
+            ul {
+                margin-left: $gutter;
+            }
+        }
+    }
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid transparentize($dark, .9);
+    margin: $gutter 0 $gutter*2;
+    padding: 0;
+}
+
+em,
+i {
+    font-style: italic;
+    line-height: inherit;
+}
+
+strong,
+b {
+    font-weight: bold;
+    line-height: inherit;
+}
+
+.small {
+font-size: 80%;
+line-height: inherit;
+}

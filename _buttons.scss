@@ -1,18 +1,22 @@
 // * B U T T O N S *
 
-.button {
+.button, input[type="submit"] {
 	display: inline-block;
 	position: relative;
 	clear: left;
 	padding: $gutter $gutter*2;
-	background-color: transparentize($primary, 0.1);
-	color:$light;
+	background-color: transparentize($primary, 0.15);
+	font-size: 1rem;
+	color:#fff;
+	border:none;
 	border-radius:1px;
 	outline: none;
 	margin: $gutter 0;
 	box-shadow: none;
+	cursor: pointer;
 	transition: $anime;
-	&::before {
+	z-index: 100;
+	&:before {
 		content: '';
 		position: absolute;
 		left: 0;
@@ -30,7 +34,7 @@
 	}
 	&:hover, &:focus {
 		box-shadow: -2px 3px 4px rgba(0,0,0,0.25);
-		&::before {
+		&:before {
 			content: '';
 			background-color: $primary;
 		   -moz-transform: scale(1);
@@ -40,24 +44,39 @@
 		        transform: scale(1);
 		}
 	}
-	&.light {
+	&.is-light {
 		background-color: transparentize($accent, 0.2);
 		color: $dark;
 		&:hover, &:focus {
-			&::before {
-				content: '';
+			&:before {
 				background-color: $accent;
 			}
 		}
 	}
-	&.dark {
+	&.is-dark {
 		background-color: transparentize($dark,0.1);
-		color: $light;
+		// color: $light;
 		&:hover, &:focus {
-			&::before {
-				content: '';
+			&:before {
 				background-color: $dark;
 			}
+		}
+	}
+}
+
+input[type="submit"].button {
+
+	&:hover, &:focus {
+		background-color: darken($primary, 10%);
+	}
+	&.is-light {
+		&:hover, &:focus {
+			background-color: $accent;
+		}
+	}
+	&.is-dark {
+		&:hover, &:focus {
+			background-color: $dark;
 		}
 	}
 }

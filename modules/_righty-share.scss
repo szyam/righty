@@ -5,6 +5,7 @@ $share-btn-color: transparentize($accent, 0.1);
 .righty-share {
     position: relative;
     width: 100%;
+    margin: $gutter 0;
     text-align: center;
     transition: all 200ms ease-in-out;
     @media (min-width: $medium) {
@@ -14,7 +15,7 @@ $share-btn-color: transparentize($accent, 0.1);
         right: 0;
         bottom: inherit;
         top: 50%;
-        // margin-top: -100px;
+        margin: 0;
 -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
         transform: translateY(-50%);
@@ -27,6 +28,9 @@ $share-btn-color: transparentize($accent, 0.1);
     display: inline-block;
     color: #fff;
     background-color: $share-btn-color;
+    font-size: 1.2rem;
+    font-family: 'icomoon';
+    line-height: 40px;
     border: none;
     margin: 2px auto;
     width: 40px;
@@ -38,34 +42,112 @@ $share-btn-color: transparentize($accent, 0.1);
         display: block;
     }
 
-    i {
-        font-size: 1.2rem;
-        line-height: 40px;
-    }
+    // i {
+    //     font-size: 1.2rem;
+    //     line-height: 40px;
+    // }
     
     &:hover, &:active {
         //color: #ffffff;
         outline: none;
     }
 
-    &.twitter     { 
+    &[href*="twitter.com"]     { 
         &:hover,&:focus {
             background-color: #55acee; 
         }
+        &:before {
+            content: '\e622';
+        }
     }
-    &.google-plus { 
+
+    &[href*="plus.google.com"] { 
         &:hover,&:focus {
             background-color: #dd4b39; 
         }
+        &:before {
+            content: '\e61d';
+        }
     }
-    &.facebook    { 
+
+    &[href*="facebook.com"]    { 
         &:hover,&:focus {
             background-color: #3B5998; 
         }
+        &:before {
+            content: '\e61f';
+        }
     }
-    &.email       { 
+
+    &[href*="mailto"]       { 
         &:hover,&:focus {
             background-color: $dark; 
+        }
+        &:before {
+            content: '\e606';
+        }
+    }
+
+    &[href*="linkedin.com"]    { 
+        &:hover,&:focus {
+            background-color: #0976b4; 
+        }
+        &:before {
+            content: 'li';
+        }
+    }
+
+    &[href*="pinterest.com"]    { 
+        &:hover,&:focus {
+            background-color: #cc2127; 
+        }
+        &:before {
+            content: '\e608';
+        }
+    }
+
+    &[href*="instagram.com"]    { 
+        &:hover,&:focus {
+            background-color: #3f729b; 
+        }
+        &:before {
+            content: '\e621';
+        }
+    }
+
+    &[href*="vimeo.com"]    { 
+        &:hover,&:focus {
+            background-color: $dark; 
+        }
+        &:before {
+            content: 'V';
+        }
+    }
+
+    &[href*="youtube.com"]    { 
+        &:hover,&:focus {
+            background-color: #cd201f; 
+        }
+        &:before {
+            content: 'YT';
+        }
+    }
+
+    &[href*="yelp.com"]    { 
+        &:hover,&:focus {
+            background-color: #af0606; 
+        }
+        &:before {
+            content: 'y';
+        }
+    }
+
+    &[href*="soundcloud.com"]    { 
+        &:hover,&:focus {
+            background-color: $primary; 
+        }
+        &:before {
+            content: 'SC';
         }
     }
 }
@@ -74,22 +156,14 @@ $share-btn-color: transparentize($accent, 0.1);
 
 // <section class="righty-share">
 //     <!-- Twitter -->
-//     <a rel="nofollow" href="http://twitter.com/share?url=http://www.your-url.com/&amp;text=Some Words:&amp;via=twitter-handle" target="_blank" class="share-btn twitter">
-//         <i class="icon-twitter"></i>
-//     </a>
+//     <a rel="nofollow" href="http://twitter.com/share?url=http://www.markszymanski.com/righty/&amp;text=A tiny grid and css toolbox:&amp;via=szyam" target="_blank" class="share-btn"></a>
 
 //     <!-- Google Plus -->
-//     <a rel="nofollow" href="https://plus.google.com/share?url=http://www.your-url.com/" target="_blank" class="share-btn google-plus">
-//         <i class="icon-google-plus"></i>
-//     </a>
+//     <a rel="nofollow" href="https://plus.google.com/share?url=http://www.markszymanski.com/righty/" target="_blank" class="share-btn"></a>
 
 //     <!-- Facebook -->
-//     <a rel="nofollow" href="http://www.facebook.com/sharer/sharer.php?u=http://www.your-url.com/" target="_blank" class="share-btn facebook">
-//         <i class="icon-facebook"></i>
-//     </a>
+//     <a rel="nofollow" href="http://www.facebook.com/sharer/sharer.php?u=http://www.markszymanski.com/righty/" target="_blank" class="share-btn"></a>
 
 //     <!-- Email -->
-//     <a rel="nofollow" href="mailto:?subject=Righty CSS&amp;body= (From http://www.your-url.com/)" class="share-btn email">
-//         <i class="icon-mail"></i>
-//     </a>
+//     <a rel="nofollow" href="mailto:?subject=Righty CSS&amp;body= (From http://www.markszymanski.com/righty/)" class="share-btn"></a>
 // </section>

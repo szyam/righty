@@ -4,10 +4,10 @@
 $one: 0.025em;
 
 $small: 20em; //320px
-$medium: 35em;
-$large: 48em; //768px
-$xlarge: 62em;
-$xxlarge: 78em;
+$medium: 48em; //768px
+$large: 70em;
+$xlarge: 80em;
+// $xxlarge: 78em;
 
 $max-medium: ($medium - $one);
 $max-large: ($large - $one);
@@ -16,6 +16,7 @@ $max-xlarge: ($xlarge - $one);
 $grid-columns: 12;
 $container-width: 62.5em !default; //1000px
 $gutter: 0.975em !default;
+$col-width: 100%;
 
 $img-grid-count: 6;
 $card-count: 6;
@@ -37,9 +38,12 @@ $trans: 0.1;
 
 // * F O N T S *
 
-$header-font: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$body-font: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$header-font: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$body-font: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$cursive: "Mr Dafoe";
+
 $body-color:#222;
+$header-color: lighten($body-color, 7%);
 
 // * M I S C *
 

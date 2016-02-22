@@ -7,7 +7,7 @@
 	padding:2em 0;
 }
 
-@media (min-width: $medium) {
+@media (min-width: ( $small * 1.5 ) ) {
     @for $i from 2 through $card-count {      
         .righty-cards-#{$i} .righty-card {
             width: 50%;
@@ -16,7 +16,7 @@
     }   
 } //mq
 
-@media (min-width: $large) {
+@media (min-width: ( $medium * 1.25 ) ) {
     @for $i from 2 through $card-count {      
         .righty-cards-#{$i} .righty-card {
             width: 100% / $i;
@@ -37,13 +37,13 @@
 	-webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     transition: $anime;
-	&:hover .back {
+	&:hover .back, &:focus .back {
 		-moz-transform: rotateY(0deg);
 		-webkit-transform: rotateY(0deg);
 		transform: rotateY(0deg);
 		transition:0.5s 0.1s; // added to add small offset to cards transition
 	}
-	&:hover .front {
+	&:hover .front, &:focus .front {
 		-moz-transform: rotateY(180deg);
 		-webkit-transform: rotateY(180deg);
 	    transform: rotateY(180deg);
@@ -83,10 +83,12 @@
 	backface-visibility: hidden;
 	transition: 0.5s;
 	.card-content {
-  		max-height: 100%;
-  		overflow: hidden;
+  		// max-height: 100%;
+  		//overflow: hidden;
   		&.has-scroll {
   			overflow: auto;
+  			max-height: 100%;
+  			-webkit-overflow-scrolling: touch;
   			padding-right: $gutter;
   		}
 	}
