@@ -42,6 +42,15 @@ $share-btn-color: transparentize($accent, 0.1);
         display: block;
     }
 
+    .righty-share.is-dark & {
+        background-color: $dark;
+        color: $light;
+    }
+
+    .righty-share.is-round & {
+        border-radius:50%;
+    }
+
     // i {
     //     font-size: 1.2rem;
     //     line-height: 40px;
@@ -50,6 +59,9 @@ $share-btn-color: transparentize($accent, 0.1);
     &:hover, &:active {
         //color: #ffffff;
         outline: none;
+        @media (min-width: $medium) {
+            transform: translateX(-0.25em);
+        }
     }
 
     &[href*="twitter.com"]     { 
@@ -150,7 +162,8 @@ $share-btn-color: transparentize($accent, 0.1);
             content: 'SC';
         }
     }
-}
+
+}//share button
 
 
 

@@ -1,27 +1,27 @@
 // * Project variables *
 
-@import 'var';
+@import 'base/var';
 
 // * Simple reset *
-@import 'reset';
+@import 'base/reset';
 
 // * Grid *
-@import 'grid';
+@import 'base/grid';
 
 // * Type *
-@import 'type';
+@import 'base/type';
 
 // * Forms *
-@import 'forms';
+@import 'base/forms';
 
 // * Buttons *
-@import 'buttons';
+@import 'base/buttons';
 
-// * Helpers *
-@import 'helpers';
+// * Utilities *
+@import 'base/utilities';
 
 // * Modules *
 @import 'modules/modules';
 
 // * Print  *
-@import 'print';
+// @import 'base/print';

@@ -5,7 +5,7 @@
 	position: relative;
 	clear: left;
 	padding: $gutter $gutter*2;
-	background-color: transparentize($primary, 0.15);
+	background-color: transparentize($primary, 0);
 	font-size: 1rem;
 	color:#fff;
 	border:none;
@@ -14,6 +14,7 @@
 	margin: $gutter 0;
 	box-shadow: none;
 	cursor: pointer;
+	text-shadow:none;
 	transition: $anime;
 	z-index: 100;
 	&:before {
@@ -33,10 +34,11 @@
 		z-index: -1;
 	}
 	&:hover, &:focus {
-		box-shadow: -2px 3px 4px rgba(0,0,0,0.25);
+		background-color: transparentize($primary, 0.15);
+		box-shadow: -2px 2px 3px rgba(0,0,0,0.25);
 		&:before {
 			content: '';
-			background-color: $primary;
+			background-color: darken($primary,5%);
 		   -moz-transform: scale(1);
 		-webkit-transform: scale(1);
 		     -o-transform: scale(1);
@@ -45,22 +47,27 @@
 		}
 	}
 	&.is-light {
-		background-color: transparentize($accent, 0.2);
+		background-color: transparentize($accent, 0);
 		color: $dark;
 		&:hover, &:focus {
+			background-color: transparentize($accent, 0.2);
 			&:before {
-				background-color: $accent;
+				background-color: darken($accent,5%);
 			}
 		}
 	}
 	&.is-dark {
-		background-color: transparentize($dark,0.1);
-		// color: $light;
+		background-color: transparentize($dark,0);
 		&:hover, &:focus {
+			background-color: transparentize($dark,0.15);
 			&:before {
-				background-color: $dark;
+				background-color: darken($dark,5%);
 			}
 		}
+	}
+	&.is-small {
+		padding: $gutter/2 $gutter;
+		font-size: 0.9rem;
 	}
 }
 
@@ -71,12 +78,12 @@ input[type="submit"].button {
 	}
 	&.is-light {
 		&:hover, &:focus {
-			background-color: $accent;
+			background-color: darken($accent, 5%);
 		}
 	}
 	&.is-dark {
 		&:hover, &:focus {
-			background-color: $dark;
+			background-color: darken($dark, 5%);
 		}
 	}
 }

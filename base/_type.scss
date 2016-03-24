@@ -10,8 +10,7 @@ p {
     margin-bottom: 1.25rem;
     text-rendering: optimizeLegibility;
     @media (min-width: $medium) {
-        font-size: 1.2rem;
-        line-height: 1.7
+        font-size: 1.125rem;
     }
 }
 
@@ -93,6 +92,10 @@ ul {
             }
         }
     }
+}
+
+ol {
+    list-style-position: inside;
 }
 
 hr {

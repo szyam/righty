@@ -1,6 +1,11 @@
 // * H E L P E R S *
 
 // * layout *
+
+.inline {
+    display: inline-block;
+}
+
 .text-left {
 	text-align: left;
 }
@@ -41,6 +46,13 @@
 	text-shadow: -1px 1px 0 transparentize($dark, $trans);
 }
 
+.light-text {
+    color: $light;
+    h1,h2,h3,h4,h5,h6,p,li {
+        color: $light;
+    }
+}
+
 // * ornamental *
 .panel {
     background-color: $light;
@@ -55,7 +67,7 @@
         padding: $gutter;
     }
     &.is-dark {
-        background-color: darken($dark, 10%);
+        background-color: darken($dark, 5%);
         color: $light;
         text-shadow:none;
     }

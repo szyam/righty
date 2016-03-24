@@ -5,13 +5,22 @@
 ul[class*="img-grid-"] {
 	@include clearfix();
 	list-style-type: none;
+	text-align: center;
+
+	margin: $img-grid-gutter #{ -$img-grid-gutter };
+
 	li {
 		position: relative;
+		display: inline-block;
 		margin: 0;
 		transition: all $trans-speed ease-in-out;
 		text-align: center;
+		border: $img-grid-gutter solid #fff;
 		@media (min-width: $medium) {
 			float: left;
+		}
+		@media (min-width: $medium) {
+			display: block;
 		}
 		a {
 			display: block;
@@ -42,12 +51,42 @@ ul[class*="img-grid-"] {
 			}
 		}
 	}
+	&.is-alt {
+		h5 {
+			top: 40%;
+		  	left: 15%;
+		  	bottom: auto;
+		  	width:auto;
+		  	min-width: 70%;
+		  	text-align:center;
+		  	background-color: transparentize($primary, $trans);
+		  	color: #fff;
+		  	// transform:translateY(-50%);
+		  // -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+		  // backface-visibility: hidden;
+		}
+		img {
+			opacity: 1;
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			transition: opacity 200ms ease-in-out;
+		}
+		li:hover, li:focus {
+			background-color: $primary;
+			img {
+				opacity: 0.5;
+			}
+			h5 {
+				background-color:transparent;
+			}
+		}
+	}
 }
 
 @media (min-width: $medium) {
     @for $i from 2 through $img-grid-count {      
         .img-grid-#{$i} li {
-            width: 50%;   
+            max-width: 50%;   
         }           
     }   
 } //mq
@@ -55,7 +94,7 @@ ul[class*="img-grid-"] {
 @media (min-width: $large) {
     @for $i from 2 through $img-grid-count {      
         .img-grid-#{$i} li {
-            width: 100% / $i;   
+            max-width: 100% / $i;   
         }           
     }   
 } //mq
@@ -65,20 +104,20 @@ ul[class*="img-grid-"] {
 // <ul class="img-grid-3">
 //     <li>
 //         <a href="#!">
+//             <img src="img/grayscale-3.jpg">
 //             <h5>This is title 1</h5>
-//             <img src="https://placeimg.com/400/400/any/grayscale">
 //         </a>
 //     </li>
 //     <li>
 //         <a href="#!">
+//             <img src="img/grayscale.jpg">
 //             <h5>This is title 2</h5>
-//             <img src="https://placeimg.com/400/400/people/grayscale">
 //         </a>
 //     </li>
 //     <li>
 //         <a href="#!">
+//             <img src="img/grayscale-4.jpg">
 //             <h5>This is title 3</h5>
-//             <img src="https://placeimg.com/400/400/arch/grayscale">
 //         </a>
 //     </li>
 // </ul>

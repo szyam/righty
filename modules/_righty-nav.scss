@@ -1,13 +1,11 @@
 // * R I G H T Y  N A V *
 
 .main-header {
-	// if using nav on scroll;
-	@media (min-width: $medium) {
-		// padding-top: 7.5em;
-	}
+   padding-top: 3em;
 }
 
-.righty-nav {
+
+.righty-nav { // mobile first
     background-color: #fff;
     border-bottom: 2px solid $primary;
     li {
@@ -19,9 +17,8 @@
             border-top: 1px solid $light;
         }
     }
-    // mobile left unstyled. Use your favorite solution.
     @media (min-width: $medium) {
-        position: relative;
+        position: absolute;// from relative
         width: 100%;
         transition: top $trans-speed ease-in-out;
         z-index: 100;
@@ -32,6 +29,11 @@
         &.nav-down {
             position: fixed;
             top: 0;
+            // & + .main-header {
+            //    @media (min-width: $medium) {
+            //       padding-top: calc(3em + #{$navbar-height});
+            //    }
+            // }
         }
     } // mq
 
@@ -170,7 +172,7 @@
                     top: calc(100% + 2px);
                     border-left: 1px solid darken($light,5%);
                     border-right: 1px solid darken($light,5%);
-                    min-width: 100px;
+                    min-width: 100%;
                     opacity: 0;
                -moz-transform: scale(0);
             -webkit-transform: scale(0);

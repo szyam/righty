@@ -1,10 +1,9 @@
 // * R I G H T Y  H E R O  *
 
-.righty-hero {
+.righty-hero { //typically placed on a .row or it's own div/section
 	position: relative;
 	padding: 3rem 0;
 	text-shadow: -1px 1px 0 rgba(255,255,255,0.3);
-	margin-bottom: 3em;
 	.hero-title {
 		display: inline-block;
 		padding: 0.5rem 1rem;
@@ -22,24 +21,30 @@
 	&.is-dark {
 		background: darken($dark, 10%);
 		background: linear-gradient( to left top, $dark, darken($dark, 3%));
+		text-shadow: none;
 		.hero-title {
 			background-color: $dark;
 			color: $light;
 		}
 	}
 	// @media (min-width: $medium) { // Add your image here
-	// 	background: url(img/no-pool.jpg);
+	// 	background: url(img/your-hero-image.jpg);
 	// 	background-size: cover;
 	// 	background-position: center center;
 	// }
 	&.is-full-height {
-		min-height: 100vh;
+		min-height: calc(100vh - #{$navbar-height});
 		display: flex;
 		-webkit-align-items: center;
 		align-items: center;
 		justify-content: center;
-		.main-header + & {
-			min-height: calc(100vh - 46px);
+		@media (min-width: $medium) {
+			min-height: 100vh;
+		}
+	}
+	&.main-header {
+		@media (min-width: $medium) {
+			padding-top: calc(3em + #{$navbar-height});
 		}
 	}
 } // End Righty-Hero

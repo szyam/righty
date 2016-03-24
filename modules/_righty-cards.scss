@@ -83,8 +83,11 @@
 	backface-visibility: hidden;
 	transition: 0.5s;
 	.card-content {
-  		// max-height: 100%;
-  		//overflow: hidden;
+  		text-shadow:none;
+  		p, li {
+  			line-height: 1.3;
+  			font-size: 1rem;
+  		}
   		&.has-scroll {
   			overflow: auto;
   			max-height: 100%;

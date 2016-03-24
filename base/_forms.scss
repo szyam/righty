@@ -18,29 +18,34 @@ select {
 	width: 100%;
 	margin-bottom: $gutter*2;
 	padding: $gutter/2;
-	color: lighten($dark, 20%);
+	color: lighten($dark, 10%);
+	-webkit-text-fill-color: lighten($dark, 10%) !important;
 	font-size: .9rem;
 	background-color: transparent;
 	outline: none;
 	border:none;
-	box-shadow: 0 2px 0 lighten($dark, 10%);
+	box-shadow: 0 1px 0 lighten($dark, 10%);
+	transition: $anime;
 	&:focus {
 		box-shadow: 0 2px 0 $primary;
 	}
 	&:-webkit-autofill {
-	    -webkit-box-shadow: 0 0 0px 100px white inset, 0 2px 0 lighten($dark, 20%);
+	    -webkit-box-shadow: 0 0 0px 100px white inset, 0 1px 0 $primary;
+	}
+	.active & {
+		-webkit-box-shadow: 0 0 0px 100px white inset, 0 1px 0 $primary;
+		// box-shadow: 0 1px 0 $primary;
 	}
 }
 
 form label {
 	color: lighten($dark, 20%);
-	display: inline-block;
+	display: block;
 	margin-top: $gutter;
 }
 
 .input-wrapper {
 	position: relative;
-	display: block;
 	span {
 		position: absolute;
 		color: lighten($dark, 20%);
@@ -76,7 +81,7 @@ select {
 	// padding: 0.5rem 3rem 0.5rem 1rem;
 	margin: 0.5em 0 $gutter*2;
 	// height: 2em;
-	border: 2px solid lighten($dark, 10%);
+	border: 1px solid lighten($dark, 10%);
 	// box-shadow: 0 2px 0 $dark, 0 -2px 0 $dark;
 	box-shadow: none;
 	background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAyOSAxNCIgd2lkdGg9IjI5Ij48cGF0aCBmaWxsPSIjZDFkMWQxIiBkPSJNOS40IDMuNmw1IDcgNS4yLTciLz48L3N2Zz4=) center right no-repeat;
@@ -87,9 +92,11 @@ select {
 		box-shadow: none;
 		border-color: $primary;
 	}
-
 	&::-ms-expand {
 	    display: none;
+	}
+	&.active {
+		border-color: $primary;
 	}
 }
 
@@ -98,8 +105,9 @@ textarea {
 	padding-top: $gutter;
 	min-height: 4em;
 	box-shadow: none;
-	border:2px solid lighten($dark, 10%);
-	&:focus {
+	border:1px solid lighten($dark, 10%);
+	margin-top: 0.25rem;
+	&:focus, &.active {
 		box-shadow: none;
 		border-color: $primary;
 	}

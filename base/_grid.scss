@@ -25,6 +25,7 @@
 [class*='col-'] {
     // float: left; // add float back to mobile-first col if experiencing collapsing issues. But, man... it feels nice to just add 'float:left' when it's necessary
     width: 100%;
+    float: left;
     min-height: $one;
     padding: $gutter;
     .switch & {
@@ -35,7 +36,7 @@
 @media (min-width: $medium) {
     @for $i from 1 through $grid-columns {      
         .col-#{$i}, { 
-            float: left;        
+            // float: left;        
             width: 100% / $grid-columns * $i;   
         }           
     }   
@@ -61,7 +62,7 @@
 .mobile-quarter {
     @media (max-width: $max-medium) {
         width: 25%;
-        float: left;
+        // float: left;
     }
     // & + *:not(.mobile-quarter)
     // {
@@ -72,7 +73,7 @@
 .mobile-third {
     @media (max-width: $max-medium) {
         width: 33.3333%;
-        float: left;
+        // float: left;
     }
     // & + *:not(.mobile-third)
     // {
@@ -83,7 +84,7 @@
 .mobile-fifty {
     @media (max-width: $max-medium) {
         width: 50%;
-        float: left;
+        // float: left;
     }
     // & + *:not(.mobile-fifty)
     // {

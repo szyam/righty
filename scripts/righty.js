@@ -1,7 +1,8 @@
 jQuery(document).ready(function($){
 
-	$('html').removeClass('no-js');// for styling purposes (optional)
+	//$('html').removeClass('no-js');// for styling purposes - use modernizr instead (optional)
 	
+
 	// * page scrolling http://css-tricks.com/snippets/jquery/smooth-scrolling/
 	$(function() {
 		$('a[href*=#]:not([href=#])').click(function() {
@@ -20,10 +21,10 @@ jQuery(document).ready(function($){
 	// * Page scrolling
 
 	// Forms
-
+	(function(){
 		var $input = $('.input-wrapper input');
 
-		$input.on( 'focus', function() {
+		$input.on( 'focus input paste', function() {
 			$(this).parent('.input-wrapper').addClass('active');
 		}).on( 'blur', function() {
 			$(this).closest( '.input-wrapper' ).removeClass('active');
@@ -32,6 +33,17 @@ jQuery(document).ready(function($){
 			}
 		});
 
+		$('form textarea').on('blur', function(){
+			if( $(this).val().length > 0 ) {
+				$(this).addClass('active');
+			}
+		});
+
+		$('form select').on('change', function(){
+			$(this).addClass('active');
+		});
+
+	})();
 	// End Forms
 
 	$(function() {
@@ -73,8 +85,9 @@ jQuery(document).ready(function($){
 		}
 		// check for nav-down class and browser width -> add padding to body to compensate
 		if( $('.righty-nav').hasClass('nav-down') && $(window).width() >= 768 ) {
-			$('body').css('padding-top', navbarHeight).addClass('has-fixed-nav');
+			$('body').addClass('has-fixed-nav');
 		}
+		// achieving this with css min-height on .main-header at the moment
 		// * End scroll nav
 	});
 
@@ -105,6 +118,20 @@ jQuery(document).ready(function($){
 	});
 	// End Modals
 
+	// Righty Expose
+	$('.righty-expose').on('click', function(e){
+
+		var expose = $(this);
+		expose.toggleClass('active'); // for styling
+
+		$('html, body').animate({
+		    scrollTop: expose.offset().top
+		}, 300);
+		e.preventDefault();
+		
+	});
+	// end expose
+
 	// Animate when in view
 	$(window).scroll(function() {
 		$('.in-view-slideUp').each(function(){
@@ -112,35 +139,37 @@ jQuery(document).ready(function($){
 
 		var topOfWindow = $(window).scrollTop();
 			if (imagePos < topOfWindow+600) {
-				$(this).addClass("slideUp");
+				$(this).addClass("fadeInUp");
 			}
 		});
 	});
 	// End Animating
 
 	// * Cards
-	var card = $('.righty-card'); 
+	(function(){
+		var card = $('.righty-card'); 
 
-	card.on("touchstart", function(e) {
-		if (card.hasClass('hover')) {
-	    	return true;
-	 	} 
-		else {
-		   	card.addClass('hover');
-		   	card.not(this).removeClass('hover');
-		   	e.preventDefault();
-	   	return false;
-	  	}
-	});
+		card.on("touchstart", function(e) {
+			if (card.hasClass('hover')) {
+		    	return true;
+		 	} 
+			else {
+			   	card.addClass('hover');
+			   	card.not(this).removeClass('hover');
+			   	e.preventDefault();
+		   	return false;
+		  	}
+		});
 
-	$('.card-content').each( function(){
-		var cardHeight 	= $(this).closest(card).outerHeight(),
-			cardContent = $(this);
+		$('.card-content').each( function(){
+			var cardHeight 	= $(this).closest(card).outerHeight(),
+				cardContent = $(this);
 
-		if ( cardContent.outerHeight() >= cardHeight ) {
-			cardContent.addClass('has-scroll');
-		}
-	});
+			if ( cardContent.outerHeight() >= cardHeight ) {
+				cardContent.addClass('has-scroll');
+			}
+		});
+	})();
 	// End Cards
 
 	// * Breakpoint Finder - Production only
