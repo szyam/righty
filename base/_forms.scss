@@ -16,7 +16,7 @@ select {
 	display: block;
 	appearance: none;
 	width: 100%;
-	margin-bottom: $gutter*2;
+	margin-bottom: 1.625rem;
 	padding: $gutter/2;
 	color: lighten($dark, 10%);
 	-webkit-text-fill-color: lighten($dark, 10%) !important;

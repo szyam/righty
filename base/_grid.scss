@@ -15,8 +15,12 @@
     }
     .row {
         @media (min-width: $medium) {
-            [class*='col-']:first-child {
+            [class*='col-']:nth-of-type(1) {
                 margin-left: -$gutter;
+            }
+            [class*='col-']:last-of-type {
+                margin-right: -$gutter;
+                float: right;
             }
         }
     }
